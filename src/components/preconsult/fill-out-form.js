@@ -1,14 +1,13 @@
 import React, { Fragment, useState } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 
 import Hero from "../layout/hero"
+import { GuyTheReceptionist } from "../layout/media-objects"
 
-const FillOutForm = ({ paths, dispatch }) => {
+const FillOutForm = ({ paths, state, dispatch }) => {
   const [formValues, setFormValues] = useState({
-    patientName: "",
-    chiefComplaint: "",
-    path: "",
+    ...state?.preConsult,
+    status: "FILL_OUT_FORM",
   })
   const [errors, setErrors] = useState({})
 
@@ -55,26 +54,11 @@ const FillOutForm = ({ paths, dispatch }) => {
   return (
     <Fragment>
       <Hero color="primary" addBox>
-        <article className="media">
-          <figure className="media-left">
-            <p className="image is-64x64">
-              <StaticImage
-                src="../../images/receptionist-avatar.png"
-                layout="constrained"
-                width={64}
-                alt="Guy in glasses (receptionist) avatar"
-              />
-            </p>
-          </figure>
-          <div className="media-content">
-            <div className="content is-medium-desktop is-family-monospace">
-              <p>
-                Hi there. Please answer this form as Dr Libby gets ready for
-                you.
-              </p>
-            </div>
-          </div>
-        </article>
+        <GuyTheReceptionist>
+          <p>
+            Hi there. Please answer this form as Dr Libby gets ready for you.
+          </p>
+        </GuyTheReceptionist>
       </Hero>
 
       <Hero>
@@ -82,6 +66,7 @@ const FillOutForm = ({ paths, dispatch }) => {
           <div className="box py-4">
             <div className="content is-normal">
               <h3>PATIENT INFORMATION</h3>
+              <hr />
               <div className="field mb-5">
                 <label className="label" htmlFor="patientName">
                   Name
@@ -92,7 +77,7 @@ const FillOutForm = ({ paths, dispatch }) => {
                     className="input"
                     type="text"
                     placeholder="Type your name here"
-                    value={formValues?.name}
+                    value={formValues?.patientName}
                     onChange={handleChange}
                     required
                   />
