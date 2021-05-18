@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import Container from "../layout/container"
+
 import Hero from "../layout/hero"
 
 const VisitClinic = ({ state, dispatch }) => {
@@ -11,7 +11,7 @@ const VisitClinic = ({ state, dispatch }) => {
   }
   return (
     <Fragment>
-      <Hero>
+      <Hero color="primary" addBox>
         <span className="tag is-medium is-warning">DR. LIBBY'S CLINIC</span>
         <br />
         <div className="content has-text-centered mt-5">
@@ -21,20 +21,20 @@ const VisitClinic = ({ state, dispatch }) => {
             style={{
               border: "4px solid black",
               display: "inline-block",
-              padding: ".5rem 5rem",
+              padding: ".5rem 3rem",
             }}
           >
             IN
           </h1>
         </div>
       </Hero>
-      <Container>
+      <Hero color="light">
         <center>
           <button onClick={visitClinic} className="button is-primary is-large">
             Drop by clinic
           </button>
         </center>
-      </Container>
+      </Hero>
     </Fragment>
   )
 }

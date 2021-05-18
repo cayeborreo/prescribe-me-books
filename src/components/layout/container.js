@@ -3,20 +3,22 @@ import React from "react"
 
 const Container = ({
   children,
-  mobile = 8,
-  tablet = 8,
+  mobile = 12,
+  tablet = 10,
   desktop = 8,
   fullhd = 6,
   isCentered = true,
 }) => {
   return (
     <div
-      className={classNames("columns is-mobile mx-5 py-5", {
+      className={classNames("columns", {
         "is-centered": isCentered,
       })}
     >
       <div
-        className={`column is-${mobile}-mobile is-${tablet}-tablet is-${desktop}-desktop is-${fullhd}-fullhd`}
+        className={classNames(
+          `column is-${mobile}-mobile is-${tablet}-tablet is-${desktop}-desktop is-${fullhd}-fullhd`
+        )}
       >
         {children}
       </div>
