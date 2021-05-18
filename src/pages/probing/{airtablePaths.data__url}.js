@@ -17,7 +17,11 @@ const ProbingPage = props => {
     }
   }, [status, dispatch])
 
-  return <Fragment>Lets see</Fragment>
+  return (
+    <Fragment>
+      <p>To be continued...</p>
+    </Fragment>
+  )
 }
 
 export default ProbingPage
