@@ -1,6 +1,6 @@
 import { navigate } from "gatsby-link"
 import React, { Fragment } from "react"
-import Container from "../layout/Container"
+import Container from "../layout/container"
 import Hero from "../layout/hero"
 
 const ProceedWithProbing = ({ state, dispatch }) => {
