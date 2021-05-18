@@ -1,6 +1,7 @@
-import { navigate } from "gatsby-link"
 import React, { Fragment } from "react"
-import Container from "../layout/container"
+import { navigate } from "gatsby-link"
+import { StaticImage } from "gatsby-plugin-image"
+
 import Hero from "../layout/hero"
 
 const ProceedWithProbing = ({ state, dispatch }) => {
@@ -13,35 +14,37 @@ const ProceedWithProbing = ({ state, dispatch }) => {
   }
   return (
     <Fragment>
-      <Hero>
+      <Hero color="primary" addBox>
         <article className="media">
           <figure className="media-left">
             <p className="image is-64x64">
-              <img
-                src="https://bulma.io/images/placeholders/64x64.png"
-                alt="A placeholder"
+              <StaticImage
+                src="../../images/dr-libby-avatar.png"
+                layout="constrained"
+                width={64}
+                alt="Woman in glasses (Dr Libby) avatar"
               />
             </p>
           </figure>
           <div className="media-content">
-            <div className="content is-medium">
+            <div className="content is-medium-desktop">
               <p>I'm sorry to hear that.</p>
               <p>
-                Before I can help you, I need to do some history-taking first.
-                Shall we proceed?
+                Before I can help you, we need to do some <b>history-taking</b>{" "}
+                first. Shall we proceed?
               </p>
             </div>
           </div>
         </article>
       </Hero>
 
-      <Container>
+      <Hero>
         <center>
           <button className="button is-primary is-large" onClick={handleClick}>
             Okay
           </button>
         </center>
-      </Container>
+      </Hero>
     </Fragment>
   )
 }

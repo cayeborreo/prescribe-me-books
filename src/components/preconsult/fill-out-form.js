@@ -1,6 +1,7 @@
-import classNames from "classnames"
 import React, { Fragment, useState } from "react"
-import Container from "../layout/container"
+import { StaticImage } from "gatsby-plugin-image"
+import classNames from "classnames"
+
 import Hero from "../layout/hero"
 
 const FillOutForm = ({ paths, dispatch }) => {
@@ -53,18 +54,20 @@ const FillOutForm = ({ paths, dispatch }) => {
 
   return (
     <Fragment>
-      <Hero>
+      <Hero color="primary" addBox>
         <article className="media">
           <figure className="media-left">
             <p className="image is-64x64">
-              <img
-                src="https://bulma.io/images/placeholders/64x64.png"
-                alt="A placeholder"
+              <StaticImage
+                src="../../images/receptionist-avatar.png"
+                layout="constrained"
+                width={64}
+                alt="Guy in glasses (receptionist) avatar"
               />
             </p>
           </figure>
           <div className="media-content">
-            <div className="content is-medium is-family-monospace">
+            <div className="content is-medium-desktop is-family-monospace">
               <p>
                 Hi there. Please answer this form as Dr Libby gets ready for
                 you.
@@ -74,7 +77,7 @@ const FillOutForm = ({ paths, dispatch }) => {
         </article>
       </Hero>
 
-      <Container>
+      <Hero>
         <form onSubmit={handleSubmit} autoComplete="off">
           <div className="box py-4">
             <div className="content is-normal">
@@ -128,7 +131,7 @@ const FillOutForm = ({ paths, dispatch }) => {
             </button>
           </center>
         </form>
-      </Container>
+      </Hero>
     </Fragment>
   )
 }

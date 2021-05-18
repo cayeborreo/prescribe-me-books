@@ -1,22 +1,25 @@
 import React, { Fragment } from "react"
-import Container from "../layout/container"
+import { StaticImage } from "gatsby-plugin-image"
+
 import Hero from "../layout/hero"
 
 const Queue = () => {
   return (
     <Fragment>
-      <Hero>
+      <Hero color="primary" addBox>
         <article className="media">
           <figure className="media-left">
             <p className="image is-64x64">
-              <img
-                src="https://bulma.io/images/placeholders/64x64.png"
-                alt="A placeholder"
+              <StaticImage
+                src="../../images/receptionist-avatar.png"
+                layout="constrained"
+                width={64}
+                alt="Guy in glasses (receptionist) avatar"
               />
             </p>
           </figure>
           <div className="media-content">
-            <div className="content is-medium is-family-monospace">
+            <div className="content is-medium-desktop is-family-monospace">
               <p>
                 All right, thanks. Please wait for Dr Libby to call you, it
                 won't be long.
@@ -26,9 +29,9 @@ const Queue = () => {
         </article>
       </Hero>
 
-      <Container>
+      <Hero>
         <div className="loader" />
-      </Container>
+      </Hero>
     </Fragment>
   )
 }

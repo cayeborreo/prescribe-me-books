@@ -1,6 +1,8 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import { navigate } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+
 import { AppContext } from "../../context/context"
 
 const Header = ({ siteTitle }) => {
@@ -18,15 +20,18 @@ const Header = ({ siteTitle }) => {
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="navbar-brand">
-        <a
-          href="/#"
-          className="navbar-item has-text-weight-bold"
-          onClick={handleHomeClick}
-        >
+      <a href="/#" className="navbar-brand" onClick={handleHomeClick}>
+        <StaticImage
+          layout="fixed"
+          src="../../images/prescribe-me-books-logo.png"
+          className="image 1x1 navbar-item m-3 is-clickable"
+          alt="Prescribe Me Books logo"
+          width={28}
+        />
+        <a href="/#" className="navbar-item has-text-weight-bold">
           {siteTitle}
         </a>
-      </div>
+      </a>
     </nav>
   )
 }
