@@ -4,6 +4,7 @@
 
 - Added probing paths and next/back navigation
 - Added prescription page
+- Add a wildcard reassessment page
 
 # Initial Release (v0.0.1)
 

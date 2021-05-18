@@ -20,6 +20,15 @@ export const AppReducer = (state, action) => {
     case "RESET_STATE":
       return initialState
 
+    case "RETAKE":
+      return {
+        ...state,
+        preConsult: {
+          ...state?.preConsult,
+          status: "FILL_OUT_FORM",
+        },
+      }
+
     case "UPDATE_PRECONSULT_STATUS":
       return {
         ...state,

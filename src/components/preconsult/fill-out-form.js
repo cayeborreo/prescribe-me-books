@@ -4,11 +4,10 @@ import classNames from "classnames"
 import Hero from "../layout/hero"
 import { GuyTheReceptionist } from "../layout/media-objects"
 
-const FillOutForm = ({ paths, dispatch }) => {
+const FillOutForm = ({ paths, state, dispatch }) => {
   const [formValues, setFormValues] = useState({
-    patientName: "",
-    chiefComplaint: "",
-    path: "",
+    ...state?.preConsult,
+    status: "FILL_OUT_FORM",
   })
   const [errors, setErrors] = useState({})
 
@@ -78,7 +77,7 @@ const FillOutForm = ({ paths, dispatch }) => {
                     className="input"
                     type="text"
                     placeholder="Type your name here"
-                    value={formValues?.name}
+                    value={formValues?.patientName}
                     onChange={handleChange}
                     required
                   />

@@ -30,16 +30,29 @@ const ProbingPage = ({ questions, dispatch }) => {
       setCurrentQuestion(followUpQuestion)
     } else {
       const results = getRecordById(currentQuestion?.data?.answers, target.id)
-      dispatch({
-        type: "UPDATE_PRESCRIPTION_RESULTS",
-        payload: results?.data,
-      })
-      navigate("/prescription")
+
+      if (results?.data?.isFinal) {
+        dispatch({
+          type: "UPDATE_PRESCRIPTION_RESULTS",
+          payload: results?.data,
+        })
+        navigate("/prescription")
+      } else {
+        dispatch({
+          type: "UPDATE_PRECONSULT_STATUS",
+          payload: "REASSESS",
+        })
+        navigate("/")
+      }
     }
   }
 
   const handleBackClick = () => {
     if (Object.values(previousQuestion)?.length < 1) {
+      dispatch({
+        type: "UPDATE_PRECONSULT_STATUS",
+        payload: "REASSESS",
+      })
       navigate("/")
     } else {
       setCurrentQuestion({ ...previousQuestion })
