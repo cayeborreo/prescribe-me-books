@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+
+// Initial variables
+$yellow: #f9c847;
+$blue: #01b3c9;
+$dark-peach: #bb5816;
+$peach: #e8813c;
+$light-peach: #fcd7bd;
+$red: #e8614d;
+
+// Derived variables
+$primary: $blue;
+$warning: $light-peach;
+$link: $peach;
+$family-sans-serif: "Poppins", Helvetica, sans-serif;
+$family-monospace: "Space Mono", monospace;
+
+// Import bulma variables
+@import "bulma/sass/utilities/initial-variables.sass";
+@import "bulma/sass/utilities/derived-variables.sass";

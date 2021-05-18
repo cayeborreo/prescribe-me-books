@@ -1,20 +1,30 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
+import React from "react"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/layout/layout"
+import Seo from "../components/layout/seo"
+import PreconsultPage from "../components/preconsult/preconsult"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = props => {
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <PreconsultPage paths={props?.data?.allAirtablePaths?.nodes} />
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const query = graphql`
+  query getPaths {
+    allAirtablePaths {
+      nodes {
+        data {
+          name
+          url
+        }
+      }
+    }
+  }
+`
