@@ -1,5 +1,5 @@
-import React, { Fragment, useContext, useEffect } from "react"
-import { graphql, navigate } from "gatsby"
+import React, { useContext } from "react"
+import { graphql } from "gatsby"
 import { AppContext } from "../../context/context"
 
 import Layout from "../../components/layout/layout"
@@ -75,13 +75,6 @@ export const query = graphql`
           }
           order
           label
-          referringAnswer {
-            data {
-              mainQuestion {
-                recordId
-              }
-            }
-          }
         }
       }
     }

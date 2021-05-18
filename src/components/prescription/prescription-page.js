@@ -36,7 +36,7 @@ const PrescriptionPage = () => {
 
   const handleButtonClick = () => {
     dispatch({
-      type: "RESET_STATE",
+      type: "RETAKE",
     })
     navigate("/")
   }
@@ -91,15 +91,18 @@ const PrescriptionPage = () => {
                         <p>For indication</p>
                         <p>Read at least 5 pages daily</p>
                       </div>
-                      <hr
-                        className={classNames({
-                          "has-background-white": index > 0,
-                        })}
-                      />
-                      {index === 0 ? (
-                        <span className="tag is-light has-text-weight-bold is-uppercase is-family-monospace">
-                          Other Recommendations
-                        </span>
+
+                      {signa?.length > 1 && index === 0 ? (
+                        <Fragment>
+                          <hr
+                            className={classNames({
+                              "has-background-white": index > 0,
+                            })}
+                          />
+                          <span className="tag is-light has-text-weight-bold is-uppercase is-family-monospace">
+                            Other Recommendations
+                          </span>
+                        </Fragment>
                       ) : null}
                     </div>
                   )
