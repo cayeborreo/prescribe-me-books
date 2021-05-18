@@ -3,8 +3,8 @@ import { AppContext } from "../../context/context"
 
 import VisitClinic from "./visit-clinic"
 import FillOutForm from "./fill-out-form"
-import InConsult from "./in-consult"
 import Queued from "./queued"
+import InConsult from "./in-consult"
 import ProceedWithProbing from "./proceed-with-probing"
 
 const PreconsultPage = ({ paths }) => {

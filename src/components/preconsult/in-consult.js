@@ -1,5 +1,6 @@
 import React, { Fragment } from "react"
-import Container from "../layout/container"
+import { StaticImage } from "gatsby-plugin-image"
+
 import Hero from "../layout/hero"
 
 const InConsult = ({ state, dispatch }) => {
@@ -14,35 +15,39 @@ const InConsult = ({ state, dispatch }) => {
 
   return (
     <Fragment>
-      <Hero>
+      <Hero color="primary" addBox>
         <article className="media">
           <figure className="media-left">
             <p className="image is-64x64">
-              <img
-                src="https://bulma.io/images/placeholders/64x64.png"
-                alt="A placeholder"
+              <StaticImage
+                src="../../images/dr-libby-avatar.png"
+                layout="constrained"
+                width={64}
+                alt="Woman in glasses (Dr Libby) avatar"
               />
             </p>
           </figure>
           <div className="media-content">
-            <div className="content is-medium">
-              <p>Hi {patientName}. I'm Dr Libby. Nice to meet you. 😊</p>
+            <div className="content is-medium-desktop">
               <p>
-                I see your main concern today is you've been feeling{" "}
-                {chiefComplaint?.toLowerCase()}?
+                Hi <b>{patientName}</b>. I'm Dr Libby. Nice to meet you. 😊
+              </p>
+              <p>
+                I see your main concern today is you've been{" "}
+                <b>feeling {chiefComplaint?.toLowerCase()}</b>?
               </p>
             </div>
           </div>
         </article>
       </Hero>
 
-      <Container>
+      <Hero>
         <center>
           <button className="button is-primary is-large" onClick={handleClick}>
             Yes, doc
           </button>
         </center>
-      </Container>
+      </Hero>
     </Fragment>
   )
 }

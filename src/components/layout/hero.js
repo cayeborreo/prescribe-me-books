@@ -1,12 +1,13 @@
+import classNames from "classnames"
 import React from "react"
 import Container from "./container"
 
-const Hero = ({ children }) => {
+const Hero = ({ children, color = "light", addBox = false }) => {
   return (
-    <section className="hero is-primary">
+    <section className={`hero is-${color}`}>
       <div className="hero-body">
         <Container>
-          <div className="box">{children}</div>
+          <div className={classNames({ box: addBox })}>{children}</div>
         </Container>
       </div>
     </section>
