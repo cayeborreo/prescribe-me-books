@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { AppContext } from "../../context/context"
 
 const Header = ({ siteTitle }) => {
+  const ENTER_KEYCODE = 13
   const { dispatch } = useContext(AppContext)
 
   const handleHomeClick = () => {
@@ -14,13 +15,27 @@ const Header = ({ siteTitle }) => {
     })
     navigate("/")
   }
+
+  const handleOnKeyDown = event => {
+    event.preventDefault()
+    if (event.keyCode === ENTER_KEYCODE) {
+      handleHomeClick()
+    }
+  }
+
   return (
     <nav
       className="navbar is-primary is-family-monospace"
       role="navigation"
       aria-label="main navigation"
     >
-      <a href="/#" className="navbar-brand" onClick={handleHomeClick}>
+      <div
+        className="navbar-brand"
+        onClick={handleHomeClick}
+        onKeyDown={handleOnKeyDown}
+        role="button"
+        tabIndex={0}
+      >
         <StaticImage
           layout="fixed"
           src="../../images/prescribe-me-books-logo.png"
@@ -31,7 +46,7 @@ const Header = ({ siteTitle }) => {
         <a href="/#" className="navbar-item has-text-weight-bold">
           {siteTitle}
         </a>
-      </a>
+      </div>
     </nav>
   )
 }

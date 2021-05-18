@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Hero from "../layout/hero"
+import { DrLibby } from "../layout/media-objects"
 
 const InConsult = ({ state, dispatch }) => {
   const { patientName, chiefComplaint } = state?.preConsult
@@ -16,29 +16,15 @@ const InConsult = ({ state, dispatch }) => {
   return (
     <Fragment>
       <Hero color="primary" addBox>
-        <article className="media">
-          <figure className="media-left">
-            <p className="image is-64x64">
-              <StaticImage
-                src="../../images/dr-libby-avatar.png"
-                layout="constrained"
-                width={64}
-                alt="Woman in glasses (Dr Libby) avatar"
-              />
-            </p>
-          </figure>
-          <div className="media-content">
-            <div className="content is-medium-desktop">
-              <p>
-                Hi <b>{patientName}</b>. I'm Dr Libby. Nice to meet you. 😊
-              </p>
-              <p>
-                I see your main concern today is you've been{" "}
-                <b>feeling {chiefComplaint?.toLowerCase()}</b>?
-              </p>
-            </div>
-          </div>
-        </article>
+        <DrLibby>
+          <p>
+            Hi <b>{patientName}</b>. I'm Dr Libby. Nice to meet you. 😊
+          </p>
+          <p>
+            I see your main concern today is you've been{" "}
+            <b>feeling {chiefComplaint?.toLowerCase()}</b>?
+          </p>
+        </DrLibby>
       </Hero>
 
       <Hero>
