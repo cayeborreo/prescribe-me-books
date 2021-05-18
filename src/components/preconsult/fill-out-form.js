@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import React, { Fragment, useState } from "react"
-import Container from "../layout/Container"
+import Container from "../layout/container"
 import Hero from "../layout/hero"
 
 const FillOutForm = ({ paths, dispatch }) => {
