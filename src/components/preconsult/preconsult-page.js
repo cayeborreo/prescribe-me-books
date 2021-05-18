@@ -14,7 +14,7 @@ const PreconsultPage = ({ paths }) => {
     switch (state?.preConsult?.status) {
       case "VISIT_CLINIC":
       default:
-        return <VisitClinic state={state} dispatch={dispatch} />
+        return <VisitClinic dispatch={dispatch} />
       case "FILL_OUT_FORM":
         return <FillOutForm paths={paths} state={state} dispatch={dispatch} />
       case "QUEUED":

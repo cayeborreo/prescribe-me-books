@@ -2,49 +2,59 @@ import React, { Fragment, useContext, useEffect } from "react"
 import { graphql, navigate } from "gatsby"
 import { AppContext } from "../../context/context"
 
-const ProbingPage = props => {
-  // console.log(props?.data?.allAirtableQuestions?.nodes)
-  const { state, dispatch } = useContext(AppContext)
-  const { status } = state?.preConsult
+import Layout from "../../components/layout/layout"
+import Seo from "../../components/layout/seo"
+import ProbingPage from "../../components/probing/probing-page"
 
-  useEffect(() => {
-    if (status !== "FINISH_PRECONSULT") {
-      dispatch({
-        type: "UPDATE_PRECONSULT_STATUS",
-        payload: "FILL_OUT_FORM",
-      })
-      navigate("/")
-    }
-  }, [status, dispatch])
+const Probing = props => {
+  const { state, dispatch } = useContext(AppContext)
+  const questions = props?.data?.allAirtableQuestions?.nodes
+
+  // useEffect(() => {
+  //   if (status !== "FINISHED_PRECONSULT") {
+  //     dispatch({
+  //       type: "RESET_STATE",
+  //     })
+  //     navigate("/")
+  //   }
+  // }, [status, dispatch])
 
   return (
-    <Fragment>
-      <p>To be continued...</p>
-    </Fragment>
+    <Layout>
+      <Seo title="Probing" />
+      <ProbingPage questions={questions} state={state} dispatch={dispatch} />
+    </Layout>
   )
 }
 
-export default ProbingPage
+export default Probing
 
 export const query = graphql`
-  query ($id: String) {
+  query ($id: [String] = "$id") {
     allAirtableQuestions(
-      filter: { data: { path: { elemMatch: { id: { eq: $id } } } } }
+      filter: { data: { path: { elemMatch: { id: { in: $id } } } } }
     ) {
       nodes {
+        recordId
         data {
           answers {
             data {
-              label
               isFinal
+              indication
+              label
+              resultNotes {
+                childMarkdownRemark {
+                  html
+                }
+              }
               followUpQuestion {
                 recordId
               }
               mainPrescription {
                 data {
                   author
-                  main
                   goodreadsURL
+                  main
                   secondary
                   subtitle
                   title
@@ -61,14 +71,18 @@ export const query = graphql`
                 }
               }
             }
+            recordId
           }
-          label
           order
-          path {
-            id
+          label
+          referringAnswer {
+            data {
+              mainQuestion {
+                recordId
+              }
+            }
           }
         }
-        recordId
       }
     }
   }
