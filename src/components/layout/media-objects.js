@@ -81,18 +81,3 @@ export const PrescriptionHeader = () => {
     </article>
   )
 }
-
-export const Superscription = ({ children }) => {
-  return (
-    <article className="media">
-      <figure className="media-left">
-        <div className="content is-large pr-5">
-          <h1>Rx</h1>
-        </div>
-      </figure>
-      <div className="media-content">
-        <div className="content is-normal my-3">{children}</div>
-      </div>
-    </article>
-  )
-}

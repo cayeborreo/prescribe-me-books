@@ -40,7 +40,6 @@ export const query = graphql`
           answers {
             data {
               isFinal
-              indication
               label
               resultNotes {
                 childMarkdownRemark {
@@ -54,8 +53,8 @@ export const query = graphql`
                 data {
                   author
                   goodreadsURL
-                  main
-                  secondary
+                  indication
+                  administration
                   subtitle
                   title
                 }
@@ -64,8 +63,8 @@ export const query = graphql`
                 data {
                   author
                   goodreadsURL
-                  main
-                  secondary
+                  indication
+                  administration
                   subtitle
                   title
                 }
