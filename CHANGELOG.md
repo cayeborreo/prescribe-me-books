@@ -3,8 +3,8 @@
 # v0.0.2
 
 - Added probing paths and next/back navigation
-- Added prescription page
-- Add a wildcard reassessment page
+- Added prescription page and fixed proportions
+- Added a wildcard reassessment page
 
 # Initial Release (v0.0.1)
 

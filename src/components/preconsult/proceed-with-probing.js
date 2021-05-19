@@ -16,10 +16,10 @@ const ProceedWithProbing = ({ state, dispatch }) => {
     <Fragment>
       <Hero color="primary" addBox>
         <DrLibby>
-          <p>Sorry to hear that.</p>
+          <p>Sorry to hear that. I'm glad you're here now.</p>
           <p>
-            But I'm glad you're here now. Before I can help you though, we need
-            to do some <b>history-taking</b>. Shall we proceed?
+            Before anything else, we need to do some <b>history-taking</b>.
+            Shall we proceed?
           </p>
         </DrLibby>
       </Hero>

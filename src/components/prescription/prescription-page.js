@@ -1,16 +1,13 @@
 import React, { Fragment, useContext, useEffect, useState } from "react"
 import { navigate } from "gatsby-link"
+import classNames from "classnames"
 
 import { AppContext } from "../../context/context"
 import Hero from "../layout/hero"
 
-import {
-  DrLibby,
-  PrescriptionHeader,
-  Superscription,
-} from "../layout/media-objects"
+import { DrLibby, PrescriptionHeader } from "../layout/media-objects"
 import PatientDetails from "./patient-details"
-import classNames from "classnames"
+import Superscription from "./superscription"
 
 const PrescriptionPage = () => {
   const { state, dispatch } = useContext(AppContext)
@@ -62,53 +59,64 @@ const PrescriptionPage = () => {
           <hr className="mt-1" />
           <PatientDetails patient={patient} />
           <Superscription>
-            <div className="notification is-light p-3">
-              <span className="tag is-warning has-text-weight-bold is-uppercase is-family-monospace">
-                Dr Libby's Assessment
-              </span>
-              <hr className="m-1" />
-              <p>Assessment here</p>
-            </div>
-            {signa?.length > 0
-              ? signa?.map((item, index) => {
-                  const medicine = item?.data
-                  return (
-                    <div key={index} className="mb-5">
-                      <a
-                        href={medicine?.goodreadsURL}
-                        className="is-size-4 has-text-weight-bold has-text-underlined mb-0"
-                      >
-                        {medicine?.title}
-                      </a>
-                      <p className="is-size-6 has-text-light-gray mb-3">
-                        {medicine?.subtitle ? (
-                          <em>{medicine?.subtitle}</em>
-                        ) : (
-                          ""
-                        )}
-                      </p>
-                      <div className="is-family-monospace">
-                        <p>For indication</p>
-                        <p>Read at least 5 pages daily</p>
-                      </div>
-
-                      {signa?.length > 1 && index === 0 ? (
-                        <Fragment>
-                          <hr
-                            className={classNames({
-                              "has-background-white": index > 0,
-                            })}
-                          />
-                          <span className="tag is-light has-text-weight-bold is-uppercase is-family-monospace">
-                            Other Recommendations
-                          </span>
-                        </Fragment>
-                      ) : null}
-                    </div>
-                  )
-                })
-              : null}
+            <span className="tag is-warning has-text-weight-bold is-uppercase">
+              Doctor's Assessment
+            </span>
+            <hr className="has-background-white m-1" />
+            <p>Assessment here</p>
           </Superscription>
+          <div className="columns">
+            <div className="column is-2 is-2-tablet is-hidden-mobile" />
+            <div className="column">
+              {signa?.length > 0
+                ? signa?.map((item, index) => {
+                    const medicine = item?.data
+                    return (
+                      <div key={index} className="mb-5">
+                        <a
+                          href={medicine?.goodreadsURL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="is-size-4 has-text-link has-text-weight-bold has-text-underlined mb-0"
+                        >
+                          {medicine?.title}
+                        </a>
+                        <p className="is-size-6 has-text-light-gray mb-3">
+                          {medicine?.subtitle ? (
+                            <em>{medicine?.subtitle}</em>
+                          ) : (
+                            ""
+                          )}
+                        </p>
+                        <div className="is-family-monospace">
+                          {medicine?.indication ? (
+                            <p>{medicine?.indication}</p>
+                          ) : null}
+                          {medicine?.administration ? (
+                            <p>{medicine?.administration}</p>
+                          ) : (
+                            <p>Read at least 5 pages daily</p>
+                          )}
+                        </div>
+
+                        {signa?.length > 1 && index === 0 ? (
+                          <Fragment>
+                            <hr
+                              className={classNames({
+                                "has-background-white": index > 0,
+                              })}
+                            />
+                            <span className="tag is-light has-text-weight-bold is-uppercase is-family-monospace">
+                              Other Recommendations
+                            </span>
+                          </Fragment>
+                        ) : null}
+                      </div>
+                    )
+                  })
+                : null}
+            </div>
+          </div>
         </div>
 
         <center>
