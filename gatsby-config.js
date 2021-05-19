@@ -63,7 +63,6 @@ module.exports = {
               // currently does not accept null / undefined. use empty string instead
               // and perform your conditional logic on name_of_field.length > 0 ? condition_1 : condition_2
               isFinal: false,
-              indication: "",
               // ... etc
             },
             mapping: { resultNotes: "text/markdown" },
@@ -73,6 +72,13 @@ module.exports = {
             tableName: `Results`,
             queryName: `Results`,
             separateNodeType: true,
+            defaultValues: {
+              // currently does not accept null / undefined. use empty string instead
+              // and perform your conditional logic on name_of_field.length > 0 ? condition_1 : condition_2
+              indication: "",
+              administration: "",
+              // ... etc
+            },
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,

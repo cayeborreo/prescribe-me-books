@@ -66,7 +66,7 @@ const FillOutForm = ({ paths, state, dispatch }) => {
           <div className="box py-4">
             <div className="content is-normal">
               <h3>PATIENT INFORMATION</h3>
-              <hr />
+              <hr className="mt-2" />
               <div className="field mb-5">
                 <label className="label" htmlFor="patientName">
                   Name
@@ -90,19 +90,21 @@ const FillOutForm = ({ paths, state, dispatch }) => {
               <br />
               <i>Lately, I've been feeling...</i>
               <div className="buttons mt-3 mb-2">
-                {paths?.map((path, index) => (
-                  <button
-                    className={classNames("button", {
-                      "is-warning": formValues?.path === path?.data?.url,
-                    })}
-                    key={index}
-                    name={path?.data?.name}
-                    id={path?.data?.url}
-                    onClick={handleClick}
-                  >
-                    {path?.data?.name}
-                  </button>
-                ))}
+                <center>
+                  {paths?.map((path, index) => (
+                    <button
+                      className={classNames("button", {
+                        "is-warning": formValues?.path === path?.data?.url,
+                      })}
+                      key={index}
+                      name={path?.data?.name}
+                      id={path?.data?.url}
+                      onClick={handleClick}
+                    >
+                      {path?.data?.name}
+                    </button>
+                  ))}
+                </center>
               </div>
               {errors?.chiefComplaint ? (
                 <p className="help is-danger">{errors?.chiefComplaint}</p>
