@@ -42,7 +42,6 @@ const PrescriptionPage = () => {
     <Fragment>
       <Hero color="primary" addBox>
         <DrLibby>
-          <p>All right, that's good enough for now.</p>
           <div
             dangerouslySetInnerHTML={{
               __html: results?.resultNotes?.childMarkdownRemark?.html,
@@ -58,15 +57,21 @@ const PrescriptionPage = () => {
           <PrescriptionHeader />
           <hr className="mt-1" />
           <PatientDetails patient={patient} />
-          <Superscription>
-            <span className="tag is-warning has-text-weight-bold is-uppercase">
+          <br />
+
+          {/* <span className="tag is-warning has-text-weight-bold is-uppercase">
               Doctor's Assessment
             </span>
             <hr className="has-background-white m-1" />
-            <p>Assessment here</p>
-          </Superscription>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: results?.resultNotes?.childMarkdownRemark?.html,
+              }}
+            />
+          </Superscription> */}
+          <Superscription />
           <div className="columns">
-            <div className="column is-2 is-2-tablet is-hidden-mobile" />
+            <div className="column is-2 is-2-tablet is-1-desktop is-hidden-mobile" />
             <div className="column">
               {signa?.length > 0
                 ? signa?.map((item, index) => {
@@ -80,7 +85,10 @@ const PrescriptionPage = () => {
                           className="is-size-4 has-text-link has-text-weight-bold has-text-underlined mb-0"
                         >
                           {medicine?.title}
-                        </a>
+                        </a>{" "}
+                        <span className="is-inline-block ml-3 is-size-6 is-family-monospace has-text-light-gray has-text-weight-bold">
+                          By {medicine?.author}
+                        </span>
                         <p className="is-size-6 has-text-light-gray mb-3">
                           {medicine?.subtitle ? (
                             <em>{medicine?.subtitle}</em>
@@ -89,16 +97,12 @@ const PrescriptionPage = () => {
                           )}
                         </p>
                         <div className="is-family-monospace">
-                          {medicine?.indication ? (
-                            <p>{medicine?.indication}</p>
-                          ) : null}
                           {medicine?.administration ? (
                             <p>{medicine?.administration}</p>
                           ) : (
-                            <p>Read at least 5 pages daily</p>
+                            <p>Read at least 5 pages daily.</p>
                           )}
                         </div>
-
                         {signa?.length > 1 && index === 0 ? (
                           <Fragment>
                             <hr
