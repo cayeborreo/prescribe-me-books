@@ -85,6 +85,7 @@ const ProbingPage = ({ questions, dispatch }) => {
                       name={name}
                       key={index}
                       onClick={handleAnswerClick}
+                      disabled={choice?.isDisabled}
                     >
                       {choices?.data?.label}
                     </button>

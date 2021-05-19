@@ -1,5 +1,9 @@
 # Prescribe Me Books Changelog
 
+# v0.0.3
+
+- Adjust prescription to new data structure
+
 # v0.0.2
 
 - Added probing paths and next/back navigation
