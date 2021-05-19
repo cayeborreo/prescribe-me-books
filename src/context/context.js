@@ -14,7 +14,7 @@ const AppProvider = ({ children }) => {
           type: "UPDATE_PRECONSULT_STATUS",
           payload: "IN_CONSULT",
         })
-      }, 1000)
+      }, 5000)
       return () => clearTimeout(waitingTime)
     }
   }, [status])
