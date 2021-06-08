@@ -7,10 +7,9 @@
 
 import React, { Fragment } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Header from "./header"
-import Container from "./container"
 import Hero from "./hero"
 
 const Layout = ({ children }) => {
@@ -30,7 +29,16 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <Hero color="white">
         <footer className="is-size-7">
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Built by{" "}
+          <a
+            href="https://github.com/cayeborreo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="has-text-link"
+          >
+            @cayeborreo
+          </a>{" "}
+          using
           {` `}
           <a
             href="https://www.gatsbyjs.com"
@@ -40,6 +48,10 @@ const Layout = ({ children }) => {
           >
             Gatsby
           </a>
+          .{" "}
+          <Link to="/about" className="has-text-link">
+            About this site
+          </Link>
         </footer>
       </Hero>
     </Fragment>

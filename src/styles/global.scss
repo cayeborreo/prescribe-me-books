@@ -1,6 +1,6 @@
 @charset "utf-8";
-@import "./_variables.scss";
-@import "./_typography.scss";
+@import "./_variables";
+@import "./_typography";
 @import "./_loaders";
 
 @import "bulma/sass/base/_all.sass";
@@ -25,8 +25,6 @@
 @import "bulma/sass/elements/notification.sass";
 @import "bulma/sass/elements/tag.sass";
 
-@import "~aos/src/sass/aos.scss";
-
 html {
   scroll-behavior: smooth;
   cursor: default;
@@ -41,6 +39,7 @@ button,
 
 p {
   margin: 0.15rem 0 !important;
+  padding: 0.25rem 0;
 }
 
 .is-borderless {
