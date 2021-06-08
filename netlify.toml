@@ -1,0 +1,10 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=63072000; includeSubdomains ; preload"
+    Feature-Policy = "vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; fullscreen 'none'; payment 'none'"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy = "default-src 'self' https: *.netlify.app 'unsafe-eval' 'unsafe-inline'; img-src 'self' netlify.app *.netlify.app images.prismic.io *.cloudfront.net data: www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
